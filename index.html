@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nambi Raja V - Digital Portfolio & Resume</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(55, 65, 81, 0.7);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blob-bg {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.15;
+            animation: float 10s ease-in-out infinite alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(-30px) scale(1.08); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen relative overflow-x-hidden">
+
+    <div class="blob-bg w-96 h-96 bg-indigo-500 rounded-full top-10 left-10"></div>
+    <div class="blob-bg w-96 h-96 bg-pink-500 rounded-full top-1/2 right-10"></div>
+    <div class="blob-bg w-80 h-80 bg-blue-400 rounded-full bottom-10 left-1/3"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#home" class="text-xl font-bold tracking-tight gradient-text flex items-center gap-2">
+                <i class="fa-solid fa-code text-indigo-600 dark:text-indigo-400"></i> Nambi Raja V
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">About</a>
+                <a href="#education" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Education</a>
+                <a href="#skills" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Skills</a>
+                <a href="#experience" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Experience</a>
+                <a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Projects</a>
+                <a href="#certifications" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Certifications</a>
+                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:scale-105 transition" aria-label="Toggle Theme">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-6 space-y-3 glass-card border-t border-slate-200 dark:border-slate-800">
+            <a href="#about" class="block py-2 font-medium hover:text-indigo-600">About</a>
+            <a href="#education" class="block py-2 font-medium hover:text-indigo-600">Education</a>
+            <a href="#skills" class="block py-2 font-medium hover:text-indigo-600">Skills</a>
+            <a href="#experience" class="block py-2 font-medium hover:text-indigo-600">Experience</a>
+            <a href="#projects" class="block py-2 font-medium hover:text-indigo-600">Projects</a>
+            <a href="#certifications" class="block py-2 font-medium hover:text-indigo-600">Certifications</a>
+            <a href="#contact" class="block py-2 font-medium hover:text-indigo-600">Contact</a>
+        </div>
+    </header>
+
+    <section id="home" class="pt-32 pb-20 md:pt-44 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="flex-1 space-y-6 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 text-sm font-semibold border border-indigo-200 dark:border-indigo-800">
+                <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span> Open to Opportunities & Internships
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
+                Hi, I'm <span class="gradient-text">Nambi Raja V</span>
+            </h1>
+            <p class="text-xl sm:text-2xl font-medium text-slate-600 dark:text-slate-300">
+                Computer Science Engineering Student & Tech Enthusiast
+            </p>
+            <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                Motivated CSE undergraduate skilled in SQL, Excel, Java, C, and Web Development. Passionate about business development, business analysis, technical support, and driving digital growth with analytical solutions.
+            </p>
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
+                <a href="#contact" class="px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium shadow-lg shadow-indigo-500/30 transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Get in Touch
+                </a>
+                <a href="#projects" class="px-7 py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 font-medium transition flex items-center gap-2">
+                    <i class="fa-solid fa-code"></i> View Projects
+                </a>
+                <button onclick="downloadResume()" class="px-5 py-3.5 rounded-xl border border-indigo-500 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 transition flex items-center gap-2 font-medium">
+                    <i class="fa-solid fa-download"></i> Download Resume
+                </button>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-6 pt-4 text-slate-500 dark:text-slate-400 text-xl">
+                <a href="https://www.linkedin.com/in/nambi-raja-9042v" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:nambiraja7266@gmail.com" class="hover:text-indigo-600 transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="tel:9042687266" class="hover:text-indigo-600 transition"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+
+        <div class="flex-1 flex justify-center">
+            <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl overflow-hidden glass-card shadow-2xl p-4 flex items-center justify-center group">
+                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-pink-500/20 group-hover:scale-105 transition duration-500"></div>
+                <div class="relative z-10 text-center space-y-4 p-6 w-full h-full flex flex-col items-center justify-center">
+                    <!-- Profile Photo Container linked to profile.png with fallback to initials if image is missing -->
+                    <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-2xl overflow-hidden bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 relative">
+                        <img src="profile.png" alt="Nambi Raja V" class="w-full h-full object-cover" onerror="this.style.display='none'; document.getElementById('fallback-initials').style.display='flex';">
+                        <div id="fallback-initials" style="display:none;" class="absolute inset-0 bg-indigo-600 flex items-center justify-center text-4xl font-black text-white">
+                            NR
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold">Nambi Raja V</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Francis Xavier Engineering College</p>
+                    <div class="inline-block px-3 py-1 rounded-full bg-green-500/10 text-green-600 text-xs font-semibold">
+                        CGPA: 9.1 / 10
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Career Objective & <span class="gradient-text">Profile</span></h2>
+            <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Dedicated professional driven by problem-solving, analytical thinking, and business impact.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-4 hover:border-indigo-500 transition">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl font-bold">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h3 class="text-xl font-bold">Core Focus</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Eager to contribute to business development, business analysis, technical support, and digital marketing by leveraging technical knowledge, teamwork, and adaptability.
+                </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-4 hover:border-indigo-500 transition">
+                <div class="w-14 h-14 rounded-2xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center text-2xl font-bold">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-xl font-bold">Education Excellence</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Pursuing B.E in Computer Science and Engineering at Francis Xavier Engineering College, Tirunelveli with an outstanding CGPA of 9.1 (2023–2027).
+                </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-4 hover:border-indigo-500 transition">
+                <div class="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl font-bold">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <h3 class="text-xl font-bold">Soft Skills</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Strong interpersonal communication, leadership, structured time management, and robust problem-solving abilities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-slate-100/50 dark:bg-slate-900/50 rounded-3xl my-10">
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Educational <span class="gradient-text">Journey</span></h2>
+            <p class="text-slate-600 dark:text-slate-400">Academic milestones and educational background.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-8">
+            <div class="glass-card p-6 sm:p-8 rounded-3xl shadow-lg relative border-l-4 border-indigo-600">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <h3 class="text-xl font-bold">B.E. Computer Science and Engineering</h3>
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 font-semibold text-sm w-fit">2023 - 2027</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-400 font-medium">Francis Xavier Engineering College, Tirunelveli</p>
+                <div class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-green-500/10 text-green-600 font-bold text-sm">
+                    <i class="fa-solid fa-award"></i> CGPA: 9.1
+                </div>
+            </div>
+
+            <div class="glass-card p-6 sm:p-8 rounded-3xl shadow-lg relative border-l-4 border-pink-600">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <h3 class="text-xl font-bold">SSLC (Secondary School Leaving Certificate)</h3>
+                    <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-600 font-semibold text-sm w-fit">2020 - 2021</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-400 font-medium">Little Flower Matric Higher Secondary School</p>
+                <div class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-600 font-bold text-sm">
+                    <i class="fa-solid fa-award"></i> Percentage: 80%
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Technical & Professional <span class="gradient-text">Skills</span></h2>
+            <p class="text-slate-600 dark:text-slate-400">Tools and technologies I work with.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6">
+                <div class="flex items-center gap-3 text-indigo-600 dark:text-indigo-400 text-xl font-bold">
+                    <i class="fa-solid fa-database"></i> Programming & DB
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">C</span>
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">Java</span>
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">SQL</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6">
+                <div class="flex items-center gap-3 text-pink-600 dark:text-pink-400 text-xl font-bold">
+                    <i class="fa-solid fa-chart-line"></i> Data Analytics
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">Microsoft Excel</span>
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">Power BI</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6">
+                <div class="flex items-center gap-3 text-blue-600 dark:text-blue-400 text-xl font-bold">
+                    <i class="fa-solid fa-globe"></i> Web & Systems
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">HTML / CSS</span>
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">JavaScript</span>
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">React.js</span>
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">Git & Github</span>
+                    <span class="px-4 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-medium text-sm">Windows</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-slate-100/50 dark:bg-slate-900/50 rounded-3xl my-10">
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Work <span class="gradient-text">Experience</span></h2>
+            <p class="text-slate-600 dark:text-slate-400">Professional internships and hands-on corporate exposure.</p>
+        </div>
+
+        <div class="space-y-8 max-w-4xl mx-auto">
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <h3 class="text-2xl font-bold">Business Development Executive Intern</h3>
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 font-semibold text-sm w-fit">August 2026 - Present</span>
+                </div>
+                <p class="text-indigo-600 dark:text-indigo-400 font-semibold">AskEVA Communications, Madurai</p>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Working on lead generation, identifying potential clients, managing client communication, scheduling product demonstrations, and driving client conversions. Gaining hands-on experience in business development, sales follow-ups, customer relationship management (CRM), and payment closures.
+                </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <h3 class="text-2xl font-bold">Web Development Intern</h3>
+                    <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-600 font-semibold text-sm w-fit">June 2024 - July 2024</span>
+                </div>
+                <p class="text-pink-600 dark:text-pink-400 font-semibold">Codespark Software Developments</p>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Completed an internship in Web Development using HTML, CSS, and JavaScript, gaining hands-on experience in creating responsive web pages, implementing interactive features, and improving user interface design. Developed strong fundamentals in frontend development, debugging, and building user-centric web solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Featured <span class="gradient-text">Projects & Journal</span></h2>
+            <p class="text-slate-600 dark:text-slate-400">Key technical applications and research journal work.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Project 1 -->
+            <div class="glass-card p-8 rounded-3xl shadow-xl flex flex-col justify-between space-y-6 hover:border-indigo-500 transition">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Live News Updates Application</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Developed a responsive web application using React.js and News API to display real-time news updates. Implemented API integration and category-based news filtering for an improved user experience.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <span class="px-3 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 text-xs font-semibold">React.js</span>
+                    <span class="px-3 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 text-xs font-semibold">News API</span>
+                    <span class="px-3 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 text-xs font-semibold">REST API</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="glass-card p-8 rounded-3xl shadow-xl flex flex-col justify-between space-y-6 hover:border-indigo-500 transition">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Modern Café Website</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Designed and developed a modern, responsive café website using HTML, CSS, JavaScript, and React.js. Created an attractive user interface with smooth navigation and mobile-friendly design.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <span class="px-3 py-1 rounded-lg bg-pink-50 dark:bg-pink-950/50 text-pink-600 text-xs font-semibold">HTML5 / CSS3</span>
+                    <span class="px-3 py-1 rounded-lg bg-pink-50 dark:bg-pink-950/50 text-pink-600 text-xs font-semibold">JavaScript</span>
+                    <span class="px-3 py-1 rounded-lg bg-pink-50 dark:bg-pink-950/50 text-pink-600 text-xs font-semibold">React.js</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Journal / Research Work -->
+        <div class="glass-card p-8 sm:p-10 rounded-3xl shadow-xl border-l-4 border-indigo-600">
+            <div class="flex items-center gap-3 text-indigo-600 dark:text-indigo-400 font-bold mb-3">
+                <i class="fa-solid fa-book-open"></i> Journal Publication / Research Work
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4">Drone-Based Coastal Surveillance System for Preventing Illegal Entry and Smuggling Through Real-Time Alerts to Local and Coastal Security Forces</h3>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                Developed a real-time drone surveillance system using sensors and GPS to detect unauthorized coastal activities and send instant alerts to local security forces.
+            </p>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-slate-100/50 dark:bg-slate-900/50 rounded-3xl my-10">
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Certifications & <span class="gradient-text">Languages</span></h2>
+            <p class="text-slate-600 dark:text-slate-400">Professional credentials and linguistic proficiency.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6">
+                <h3 class="text-xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-certificate text-indigo-600"></i> Certifications
+                </h3>
+                <ul class="space-y-3 text-slate-600 dark:text-slate-300">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-indigo-600"></i> NPTEL: Introduction of Internet of Things</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-indigo-600"></i> JavaScript Essentials</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-indigo-600"></i> MongoDB Basics</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-indigo-600"></i> Network Essentials</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-indigo-600"></i> CCNA Introduction to Networks</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-indigo-600"></i> Python Fundamentals</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-indigo-600"></i> English Typewriting - Junior & Senior</li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6">
+                <h3 class="text-xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-language text-pink-600"></i> Languages Known
+                </h3>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <div class="px-6 py-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800 text-center flex-1">
+                        <div class="font-bold text-lg text-indigo-600 dark:text-indigo-400">Tamil</div>
+                        <div class="text-xs text-slate-500 mt-1">Native / Professional</div>
+                    </div>
+                    <div class="px-6 py-4 rounded-2xl bg-pink-50 dark:bg-pink-950/50 border border-pink-200 dark:border-pink-800 text-center flex-1">
+                        <div class="font-bold text-lg text-pink-600 dark:text-pink-400">English</div>
+                        <div class="text-xs text-slate-500 mt-1">Fluent / Professional</div>
+                    </div>
+                    <div class="px-6 py-4 rounded-2xl bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 text-center flex-1">
+                        <div class="font-bold text-lg text-blue-600 dark:text-blue-400">Hindi</div>
+                        <div class="text-xs text-slate-500 mt-1">Conversational</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Let's <span class="gradient-text">Connect</span></h2>
+            <p class="text-slate-600 dark:text-slate-400">Reach out for collaborations, job opportunities, or inquiries.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div class="glass-card p-8 sm:p-10 rounded-3xl shadow-xl space-y-8">
+                <h3 class="text-2xl font-bold">Contact Information</h3>
+                <div class="space-y-6">
+                    <a href="mailto:nambiraja7266@gmail.com" class="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400">Email</div>
+                            <div class="font-medium">nambiraja7266@gmail.com</div>
+                        </div>
+                    </a>
+
+                    <a href="tel:9042687266" class="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition">
+                        <div class="w-12 h-12 rounded-2xl bg-pink-500/10 text-pink-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400">Phone</div>
+                            <div class="font-medium">9042687266</div>
+                        </div>
+                    </a>
+
+                    <div class="flex items-center gap-4 text-slate-600 dark:text-slate-300">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400">Location</div>
+                            <div class="font-medium">Tirunelveli, Tamil Nadu, India</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 sm:p-10 rounded-3xl shadow-xl space-y-6">
+                <h3 class="text-2xl font-bold">Send a Message</h3>
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-2">Your Name</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:outline-none focus:border-indigo-600 transition" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-2">Your Email</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:outline-none focus:border-indigo-600 transition" placeholder="john@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-2">Message</label>
+                        <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:outline-none focus:border-indigo-600 transition" placeholder="Let's discuss opportunities..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-lg shadow-indigo-600/30 transition">
+                        Send Message
+                    </button>
+                </form>
+                <div id="form-success" class="hidden text-green-600 font-semibold text-center mt-2">
+                    <i class="fa-solid fa-circle-check"></i> Thank you! Your message has been sent successfully.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 text-sm">
+        <p>© 2026 Nambi Raja V. All rights reserved. Designed with modern digital portfolio aesthetics.</p>
+    </footer>
+
+    <script>
+        // Theme Toggle Script
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Check system or saved preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            htmlElement.classList.remove('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('contact-form').reset();
+            const successMsg = document.getElementById('form-success');
+            successMsg.classList.remove('hidden');
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Resume Download simulation or trigger
+        function downloadResume() {
+            const resumeText = `
+NAMBI RAJA V
+Phone: 9042687266 | Email: nambiraja7266@gmail.com
+LinkedIn: www.linkedin.com/in/nambi-raja-9042v | Tirunelveli, Tamil Nadu
+
+CAREER OBJECTIVE:
+Motivated Computer Science Engineering student with skills in SQL, Excel, Java, and C, along with strong communication, analytical, and problem-solving abilities. Eager to contribute to business development, business analysis, technical support, and digital marketing.
+
+EDUCATION:
+- B.E Computer Science and Engineering | Francis Xavier Engineering College, Tirunelveli (2023-2027) | CGPA: 9.1
+- SSLC | Little Flower Matric Higher Secondary School (2020-2021) | Percentage: 80%
+
+TECHNICAL SKILLS:
+- Programming & Database: C, SQL, Java
+- Data Analytics: Microsoft Excel, Power BI
+- Web Development: HTML, CSS, JavaScript, React.js, Git, Github
+- Operating System: Windows
+
+EXPERIENCE:
+- Business Development Executive Intern | AskEVA Communications, Madurai (August 2026-Present)
+- Web Development Intern | Codespark Software Developments (June 2024-July 2024)
+
+PROJECTS:
+1. Live News Updates Application (React.js & News API)
+2. Modern Café Website (HTML, CSS, JavaScript, React.js)
+
+JOURNAL:
+- Drone-Based Coastal Surveillance System for Preventing Illegal Entry and Smuggling Through Real-Time Alerts
+
+CERTIFICATIONS:
+- NPTEL: Introduction of IoT, JavaScript Essentials, MongoDB Basics, Network Essentials, CCNA Intro to Networks, Python Fundamentals, English Typewriting (Junior & Senior).
+            `.trim();
+
+            const blob = new Blob([resumeText], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Nambi_Raja_V_Resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
